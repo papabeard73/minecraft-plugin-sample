@@ -24,6 +24,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -118,5 +119,10 @@ public final class Main extends JavaPlugin implements Listener {
     });
     player.getInventory().setContents(itemStacks);
   }
-}
 
+  @EventHandler
+  public void onPlayerJoin(PlayerJoinEvent e) {
+    Player player = e.getPlayer();
+    e.setJoinMessage("ようこそ、" + player.getName() + "さん！");
+  }
+}
