@@ -4,21 +4,14 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.IntStream;
 import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.block.BlockState;
-import org.bukkit.block.data.type.Bed;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -38,6 +31,8 @@ public final class Main extends JavaPlugin implements Listener {
   public void onEnable() {
     // イベントリスナーを登録
     Bukkit.getPluginManager().registerEvents(this, this);
+
+    this.getCommand("setlevel").setExecutor(new SetLevelCommand());
 
     // コマンドを登録
     this.getCommand("getbed").setExecutor((sender, command, label, args) -> {
