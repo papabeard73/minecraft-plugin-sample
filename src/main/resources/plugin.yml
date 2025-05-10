@@ -7,3 +7,4 @@ commands:
     description: プレイヤーにベッドを追加するコマンド
     usage: /<command>
   setlevel:
+  allsetlevel:

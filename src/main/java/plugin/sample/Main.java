@@ -33,6 +33,7 @@ public final class Main extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(this, this);
 
     this.getCommand("setlevel").setExecutor(new SetLevelCommand());
+    this.getCommand("allsetlevel").setExecutor(new AllSetLevelCommand());
 
     // コマンドを登録
     this.getCommand("getbed").setExecutor((sender, command, label, args) -> {
