@@ -29,10 +29,13 @@ public final class Main extends JavaPlugin implements Listener {
 
   @Override
   public void onEnable() {
+
+    saveDefaultConfig();
+
     // イベントリスナーを登録
     Bukkit.getPluginManager().registerEvents(this, this);
 
-    this.getCommand("setlevel").setExecutor(new SetLevelCommand());
+    this.getCommand("setlevel").setExecutor(new SetLevelCommand(this));
     this.getCommand("allsetlevel").setExecutor(new AllSetLevelCommand());
 
     // コマンドを登録

@@ -7,7 +7,10 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class SetLevelCommand implements CommandExecutor {
-
+  private Main main;
+  public SetLevelCommand(Main main) {
+    this.main = main;
+  }
   @Override
   public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command,
       @NotNull String label, @NotNull String[] args) {
@@ -22,7 +25,7 @@ public class SetLevelCommand implements CommandExecutor {
           sender.sendMessage("'" + args[0] + "' は数値ではありません。");
         }
       } else {
-        sender.sendMessage("引数はひとつで！");
+        sender.sendMessage(main.getConfig().getString("Message"));
       }
     }
     return false; // public boolean と記述している箇所に対応する記述。処理が終わったら何もしない、というような意
